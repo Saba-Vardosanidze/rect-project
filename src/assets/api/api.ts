@@ -7,8 +7,11 @@ export const catAndDogApi = async () => {
     fetch(catApi).then((res) => res.json()),
   ]);
 
-  const cat = catRef.map((ressponse) => ({url: ressponse.url, isDog: false}));
+  const cat = {
+    url: catRef[0]?.url,
+    isDog: false,
+  };
   const dog = {url: dogRef?.message, isDog: true};
 
-  return [...cat, dog];
+  return [cat, dog];
 };
